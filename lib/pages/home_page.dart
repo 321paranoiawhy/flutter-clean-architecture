@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_clean_architecture/widgets/custom/percentage_positioned.dart';
 
 import '../utils/logger.dart';
 // import 'package:logging/logging.dart';
@@ -12,10 +13,25 @@ class HomePage extends StatelessWidget {
         body: GestureDetector(
             behavior: HitTestBehavior.opaque,
             onTap: () {
-              Logger().debug('Home Page');
-              // print(1);
+               Logger('Home Page');
             },
-            child: const Center(child: Text('Home Page'))));
+            child: PercentagePositioned(
+                relativeWidget: Container(
+                    width: 200,
+                    height: 200,
+                    decoration: const BoxDecoration(color: Colors.blue)),
+                // isRelativeWidgetPositioned: true,
+                relativeWidgetData: const PositionData(left: 50, top: 30),
+                positionedChildren: [
+                  Container(
+                    width: 50,
+                    height: 50,
+                    decoration: const BoxDecoration(color: Colors.red),
+                  )
+                ],
+                positionedChildrenData: const [
+                  PositionData(left: 0.2, top: 0.5)
+                ])));
   }
 }
 

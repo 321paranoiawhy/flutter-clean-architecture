@@ -43,28 +43,11 @@ extension on DateTime {
 /// https://en.wikipedia.org/wiki/ANSI_escape_code
 /// https://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html
 /// 选择性输出到本地日志 shouldReport
-class Logger {
+void Logger(dynamic message) {
   // final dynamic message;
   // final LogMode mode;
 
   // const Logger({required this.message, this.mode = LogMode.debug});
-  const Logger();
-
-  void debug(dynamic message) {
-    log(mode: LogMode.debug, message: message);
-  }
-
-  void warning(dynamic message) {
-    log(mode: LogMode.warning, message: message);
-  }
-
-  void info(dynamic message) {
-    log(mode: LogMode.info, message: message);
-  }
-
-  void error(dynamic message) {
-    log(mode: LogMode.error, message: message);
-  }
 
   void log({
     required LogMode mode,
@@ -85,11 +68,11 @@ class Logger {
     print(frames);
     print(frames.length);
     // 找到当前函数的信息帧
-    final currentFrameIndex = frames.indexWhere(
-        (Frame element) => element.member == runtimeType.toString());
+    final currentFrameIndex =
+        frames.indexWhere((Frame element) => element.member == 'Logger');
     // assert(currentFrameIndex != -1 && currentFrameIndex <= frames.length - 1,
     //     'Could not find current frame with name: Logger.');
-    print(this.runtimeType);
+    // print(runtimeType);
     print(currentFrameIndex);
 
     if (currentFrameIndex == -1 || currentFrameIndex + 1 >= frames.length) {

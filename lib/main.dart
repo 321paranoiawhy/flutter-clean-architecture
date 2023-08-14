@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'routes/go_router.dart';
@@ -7,7 +10,10 @@ import 'package:flutter_web_plugins/url_strategy.dart';
 void main() {
   // 使用 PathUrlStrategy
   // https://flutter.cn/docs/development/ui/navigation/url-strategies#configuring-the-url-strategy
-  usePathUrlStrategy();
+  // if(Platform.is)
+  if (kIsWeb) {
+    usePathUrlStrategy();
+  }
   runApp(const MainApp());
 }
 

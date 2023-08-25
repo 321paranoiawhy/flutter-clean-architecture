@@ -14,18 +14,17 @@ extension on DateTime {
 
   /// 当月有多少天
   int totalDaysInMonth() {
+    // 另一种方式, 直接计算下一个月前一天即可
+    // return DateTime(year, month + 1, 0).day;
+
     // 1 3 5 7 8 10 12 每月固定 31 天
     if (leapYearMonths.contains(month)) {
       return 31;
       // 特殊的 2 月
     } else if (month == 2) {
-      /// 闰年, 2 月有 29 天
-      if (isLeapYear) {
-        return 29;
-      }
-
-      /// 非闰年, 2 月有 28 天
-      return 28;
+      // 闰年, 2 月有 29 天
+      // 非闰年, 2 月有 28 天
+      return isLeapYear ? 29 : 28;
     }
     // 余者, 30 天
     return 30;

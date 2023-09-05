@@ -21,7 +21,7 @@ class HomePage extends StatelessWidget {
                     height: 200,
                     decoration: const BoxDecoration(color: Colors.blue)),
                 // isRelativeWidgetPositioned: true,
-                relativeWidgetData: const PositionData(left: 50, top: 30),
+                relativeWidgetData: const PositionData(left: 50, top: 50),
                 positionedChildren: [
                   Container(
                     width: 50,
@@ -30,7 +30,7 @@ class HomePage extends StatelessWidget {
                   )
                 ],
                 positionedChildrenData: const [
-                  PositionData(left: 0.2, top: 0.5)
+                  PositionData(left: 0.1, top: 0.5)
                 ])));
   }
 }

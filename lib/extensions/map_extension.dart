@@ -1,5 +1,3 @@
-// ignore_for_file: unused_element
-
 import 'package:flutter/material.dart';
 
 typedef IterateAction = void Function(int index, dynamic key, dynamic value);
